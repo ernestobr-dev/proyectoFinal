@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login.Fragment_Login"
+    android:orientation="vertical"
+    android:background="@drawable/recuadro"
+    android:backgroundTint="@color/white"
+    >
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="321dp"
+        android:layout_height="264dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:src="@drawable/imglogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="105dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/carme"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/_loginUsuario"
+        android:textAlignment="center"
+        android:textColor="#333333"
+        android:textColorHint="#333333"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="179dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/carme"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/_loginContrasena"
+        android:textAlignment="center"
+        android:textColor="#333333"
+        android:textColorHint="#333333"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_txtUsuario"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/_txtContrasena"
+        android:layout_width="269dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/ciruculos_login"
+        android:fontFamily="@font/carme"
+        android:gravity="center_horizontal|center_vertical"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnIrRegsitro"
+        android:layout_width="269dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ciruculos_login"
+        android:fontFamily="@font/carme"
+        android:text="@string/botonRegistrase"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/design_default_color_primary_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_btnLogin"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/_btnLogin"
+        android:layout_width="269dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/ciruculos_login"
+        android:fontFamily="@font/carme"
+        android:text="@string/_botonLogin"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/design_default_color_primary_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_txtContrasena"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/_txtUsuario"
+        android:layout_width="269dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/ciruculos_login"
+        android:fontFamily="@font/carme"
+        android:gravity="center_horizontal|center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

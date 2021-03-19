@@ -1,0 +1,3 @@
+Azul Clarito: 83bcb3 ---> Como para fondos
+Gris: 333333 ---> Como para letras
+Azul oscuro : 1a0774 --> como fondos de botones ... con letras blancas

@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "9505e092-d304-412c-8c21-3850d9688c14",
+		"name": "Gestion Medica",
+		"description": "http://localhost/back/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Medico",
+			"item": [
+				{
+					"name": "Alta Medico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"dni\":\"11111111J\",\r\n    \"email\":\"primeremail@gmail.com\",\r\n    \"contraseña\":\"12345\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/back/medico/alta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"medico",
+								"alta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/back/medico/login?email=primeremail@gmail.com&contraseña=12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"medico",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "primeremail@gmail.com"
+								},
+								{
+									"key": "contraseña",
+									"value": "12345"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pacientes",
+			"item": [
+				{
+					"name": "Buscar Pacientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/back/pacientes/buscar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"pacientes",
+								"buscar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Agenda",
+			"item": [
+				{
+					"name": "Alta Agenda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"tipo\":\"consulta\",\r\n    \"nombre\":\"Ernesto Blazquez Ramos\",\r\n    \"fecha\":\"2021/03/9\",\r\n    \"usuario\":\"11111111J\"\r\n\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/back/agenda/alta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"agenda",
+								"alta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Eventos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/back/agenda/buscar?fecha=2021-03-15&usuario=11111111J",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"agenda",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "fecha",
+									"value": "2021-03-15"
+								},
+								{
+									"key": "usuario",
+									"value": "11111111J"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Evento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha\":\"2021/03/15\",\r\n    \"nombre\":\"Eliminar\",\r\n    \"id\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/back/agenda/modificar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"agenda",
+								"modificar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/back/agenda/eliminar?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"agenda",
+								"eliminar"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "http://localhost/back/agenda/"
+		},
+		{
+			"name": "Resultados",
+			"item": [
+				{
+					"name": "Buscar Resultados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/back/resultados/buscar?paciente=74041334X",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"resultados",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "paciente",
+									"value": "74041334X"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "http://localhost/back/resultados/"
+		},
+		{
+			"name": "Tratamientos",
+			"item": [
+				{
+					"name": "Buscar Tratamientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/back/resultados/buscar?paciente=74041334X",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"resultados",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "paciente",
+									"value": "74041334X"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "http://localhost/back/tratamientos/"
+		},
+		{
+			"name": "Historial",
+			"item": [
+				{
+					"name": "Buscar Historial",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/back/historial/buscar?paciente=74041334X",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"back",
+								"historial",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "paciente",
+									"value": "74041334X"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "http://localhost/back/historial/"
+		}
+	]
+}

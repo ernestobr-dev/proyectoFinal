@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/opAgenda"
+        android:title="@string/_tituloAgenda"
+        android:icon="@drawable/agenda"
+
+        />
+
+    <item
+        android:id="@+id/opGestion"
+        android:title="@string/_tituloGestion"
+        android:icon="@drawable/gestion"
+        />
+
+    <item
+        android:id="@+id/opInformacion"
+        android:title="@string/_tituloInformacion"
+        android:icon="@drawable/informacion"
+        />
+
+    <item
+        android:id="@+id/opCalculadora"
+        android:title="@string/_tituloCalculadora"
+        android:icon="@drawable/calculadora"
+        />
+
+    <item
+        android:id="@+id/opBuscador"
+        android:title="@string/_tituloBuscador"
+        android:icon="@drawable/buscador"
+        />
+
+
+</menu>

@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">Proyecto_Final</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: LOGIN -->
+
+    <string name="_loginUsuario">USUARIO</string>
+    <string name="_loginContrasena">CONTRASEÑA</string>
+    <string name="_botonLogin">ENTRAR</string>
+    <string name="botonRegistrase">REGISTRARSE</string>
+
+
+    <!-- TODO: TITULOS MENU INFERIOR  -->
+    <string name="_tituloHome">Home</string>
+    <string name="_tituloGestion">Gestion</string>
+    <string name="_tituloAgenda">Agenda</string>
+    <string name="_tituloInformacion">Informacion</string>
+    <string name="_tituloCalculadora">Calculadora</string>
+    <string name="_tituloBuscador">Buscador</string>
+
+    <!--- TODO: REGISTRO -->
+    <string name="dniRegistro">DNI USUARIO A REGISTRAR</string>
+    <string name="emailRegistro">EMAIL USUARIO A REGISTRAR</string>
+    <string name="contrasena">CONTRASEÑA</string>
+    <string name="repetirContraseña">REPETIR CONTRASEÑA</string>
+    <string name="botonConfirmarRegistro">REGISTRAR</string>
+    <string name="botonVolverLogin">VOLVER</string>
+
+
+    <!-- TODO: ERRORES -->
+    <string name="errorEmailVacio">CAMPO EMAIL VACIO</string>
+    <string name="errorContrasenaVacia">CAMPO CONTRASEÑA VACIO</string>
+    <string name="errorDniVacio">CAMPO DNI VACIO</string>
+    <string name="errorContrasenaRepeVacia">CAMPO REPETIR CONTRASEÑA VACIO</string>
+    <string name="errorContrasenasNoIguales">LAS CONTRASEÑAS NO COINCIDEN</string>
+    <string name="errorFormatoDni">EL FORMATO DEL DNI NO ES VALIDO</string>
+    <string name="errorLetraDni">LA LETRA DEL DNI NO ES CORRECTA</string>
+    <string name="errorFormatoEmail">EL FORMATO DEL EMAIL NO ES VALIDO</string>
+    <string name="errorFecha">LA FECHA TIENE QUE SER POSTERIOR A LA ACTUAL</string>
+
+    <!-- TODO: CADENAS DE LA PANTALLA AGENDA PANTALLA AGENDA -->
+    <string name="eligirFecha">ELIJA LA FECHA</string>
+    <string name="tipoEvento">Tipo: </string>
+    <string name="nombreEvento">Nombre: </string>
+
+    <!-- TODO: CADENAS PANTALLA ALTA EVENTO -->
+    <string name="tipoAltaEvento">TIPO DE EVENTO</string>
+    <string name="nombreAltaEvento">NOMBRE DEL EVENTO</string>
+    <string name="fechaAltaEvento">FECHA DEL EVENTO</string>
+    <string name="botonAltaEvento">ALTA DEL EVENTO</string>
+    <string name="botonVolverAgenda">VOLVER A LA AGENDA</string>
+
+    <!-- TODO: LISTADOS DE SECCIONES DE LAS PANTALLAS DE GESTION Y DE INFORMACIÓN -->
+    <string-array name="seccionesGestion">
+        <item>Tratamientos</item>
+        <item>Intervenciones</item>
+    </string-array>
+
+    <string-array name="seccionesInfomracion">
+        <item>Historiales</item>
+        <item>Resultados</item>
+    </string-array>
+    <string name="title_activity_pdf">PdfActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+
+
+</resources>
