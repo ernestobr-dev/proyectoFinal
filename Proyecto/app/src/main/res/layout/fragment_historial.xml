@@ -4,40 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pantallas.Historial.HistorialFragment">
+    tools:context=".Pantallas.Historial.HistorialFragment"
+    >
 
 
-    <Button
-        android:id="@+id/buscarHistoriales"
-        android:layout_width="37dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="44dp"
-        android:background="@drawable/buscador"
-        app:iconTint="#FFFFFF"
+    <fragment
+        android:id="@+id/buscador"
+        android:name="com.example.proyecto_final.Pantallas.BuscadorFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Spinner
-        android:id="@+id/spinnerPacientesHistorial"
-        android:layout_width="289dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="13dp"
-        app:layout_constraintEnd_toStartOf="@+id/buscarHistoriales"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout="@layout/fragment_buscador" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="27dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buscarHistoriales"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buscador"
         tools:ignore="MissingConstraints">
 
 

@@ -21,7 +21,6 @@ import com.example.proyecto_final.Back.Routes.PacientesRoutes;
 import com.example.proyecto_final.Back.Routes.ResultadosRoutes;
 import com.example.proyecto_final.Back.models.Pacientes.Paciente;
 import com.example.proyecto_final.Back.models.Resultados.Resultado;
-import com.example.proyecto_final.Pantallas.FragmentIG.TabbedFragment;
 import com.example.proyecto_final.R;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -35,6 +34,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.proyecto_final.Pantallas.PantallasAcciones.EventosPantallasAcciones.fillSpinner;
 
 
 public class ResultadosFragment extends Fragment {
@@ -61,7 +62,8 @@ public class ResultadosFragment extends Fragment {
     private Spinner spinner;
 
     // TODO: ADAPTADOR DE LA VISTA DE LOS ICONOS DE LOS RESULTADOS
-    private AdaptadorResultados adaptador;
+    //private AdaptadorResultados adaptador;
+    private View viewBuscador;
 
 
     public ResultadosFragment() {
@@ -89,13 +91,13 @@ public class ResultadosFragment extends Fragment {
 
         // TODO: VISTA DE LA PANTALLA ACTUAL
         view = inflater.inflate(R.layout.fragment_resultados, container, false);
+        viewBuscador = (View) view.findViewById(R.id.buscador);
 
+        buttonFindResultados = (Button) viewBuscador.findViewById(R.id.buttonBuscador);
+        iconosResultados = (GridView)   view.findViewById(R.id.tablaResultados);
+        spinner = (Spinner) viewBuscador.findViewById(R.id.spinnerBuscador);
 
-        buttonFindResultados = (Button) view.findViewById(R.id.buscarResultados);
-        iconosResultados = (GridView) view.findViewById(R.id.tablaResultados);
-        spinner = (Spinner) view.findViewById(R.id.listaPacientesResultados);
-
-        rellenarSpinner(view);
+        fillSpinner(spinner,view);
 
 
         buttonFindResultados.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +105,7 @@ public class ResultadosFragment extends Fragment {
             public void onClick(View v) {
 
                 // TODO: AL HACER CLICK EN EL BOTON, RECOGO EL PACIENTE QUE HA EL USUARIO PARA PODER REALIZAR LA CONSULTA
-                spinner = (Spinner)view.findViewById(R.id.listaPacientesResultados);
+
                 consulta(spinner.getSelectedItem().toString().split("-")[0]);
                 Log.i("resultados", "Entro en la parte de resultados");
 
@@ -115,6 +117,7 @@ public class ResultadosFragment extends Fragment {
 
     // TODO: MÉTODO CON EL QUE HAGO LA CONSULTA A LA BASE DE DATOS
     private void consulta(String idPaciente) {
+
 
         datosRecogo = new ArrayList<String>();
         Gson gson = new GsonBuilder()
@@ -137,7 +140,7 @@ public class ResultadosFragment extends Fragment {
 
                      case 200:
 
-                         Log.i("respuesta", String.valueOf(response.body().getResultados().size()));
+                         Log.i("200", "Correcto");
 
                          // TODO: RECORRO CADA UNO DE LOS RESULTADOS Y LOS AÑADO A LA LISTA QUE LUEGO PASO COMO PARÁMETRO AL MÉTODO DE ACCIONES
                          for(Resultado r : response.body().getResultados()){
@@ -147,7 +150,7 @@ public class ResultadosFragment extends Fragment {
                          }
 
                          // TODO: OBJETO DE LA CLASE ADAPATADOR PARA PODER MOSTRAR AL USUARIO EL ICONO CON EL NOMBRE DEL RESULTADO
-                         adaptador = new AdaptadorResultados(getContext(),datosRecogo);
+                            AdaptadorResultados adaptador = new AdaptadorResultados(getContext(),datosRecogo);
 
                          // TODO: AÑADO EL ADAPTADOR AL ELEMENTOS GRIDVIEW DE ESTA PANTALLA
                          iconosResultados.setAdapter(adaptador);
@@ -155,7 +158,7 @@ public class ResultadosFragment extends Fragment {
 
                          break;
 
-                     case 299:
+                     case 204:
 
                          Toasty.error(getContext(),"NO HAY RESULTADOS DISPONIBLES PARA ESTE PACIENTE", Toast.LENGTH_SHORT,true).show();
 
@@ -169,6 +172,7 @@ public class ResultadosFragment extends Fragment {
 
              @Override
              public void onFailure(Call<RespuestaBuscarResultados> call, Throwable t) {
+                 Toasty.error(getContext(),"NO HAY RESULTADOS DISPONIBLES PARA ESTE PACIENTE", Toast.LENGTH_SHORT,true).show();
 
              }
          });
@@ -176,7 +180,7 @@ public class ResultadosFragment extends Fragment {
     }
 
 
-    private void rellenarSpinner(View view){
+    private void rellenarSpinner(){
         // TODO: CLASES NECESARIAS PARA PODER REALIZAR LA CONSULTA A LA BASE DE DATOS Y RELLENAR EL SPINNER CON LOS PACIENTES
         PacientesRoutes rutaBuscarPaciente;
         Call<RespuestaBuscarPaciente> respuesta;
@@ -205,7 +209,7 @@ public class ResultadosFragment extends Fragment {
                 // TODO: ARRAY AUXILIAR DONDOE ALMACENAR LOS DATOS RECIBIDOS DE LA BASE DE DATOS
 
 
-                if(response.code() == 299){
+                if(response.code() == 204){
                     Toasty.error(view.getContext(),"ERROR AL CONECTAR CON LA BASE DE DATOS", Toast.LENGTH_SHORT,true).show();
 
                 }

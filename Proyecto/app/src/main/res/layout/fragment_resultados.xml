@@ -7,28 +7,12 @@
     android:orientation="vertical"
     tools:context=".Pantallas.Resultados.ResultadosFragment">
 
-    <Spinner
-        android:id="@+id/listaPacientesResultados"
-        android:layout_width="289dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="13dp"
-        app:layout_constraintEnd_toStartOf="@+id/buscarResultados"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/buscarResultados"
-        android:layout_width="37dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="44dp"
-        android:background="@drawable/buscador"
-        app:iconTint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_buscador"
+        android:id="@+id/buscador"
+        android:name="com.example.proyecto_final.Pantallas.BuscadorFragment"
         tools:ignore="MissingConstraints" />
 
     <GridView
@@ -42,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listaPacientesResultados"
+        app:layout_constraintTop_toBottomOf="@+id/buscador"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

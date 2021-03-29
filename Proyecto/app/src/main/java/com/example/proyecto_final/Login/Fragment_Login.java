@@ -34,9 +34,9 @@ public class Fragment_Login extends Fragment {
     // TODO: VISTA DEL FRAGMENT
     private View vista;
 
-    // TODO: ELEMENTOS USADOS EN EL LOGIN
-    private Button boton,registrarse;
-    private EditText email,contraseña;
+
+    private Button buttonLogin,buttonRegister;
+    private EditText editTextEmail,editTextContrasena;
 
     // TODO: CLASES NECESARIAS
     private MedicoRoutes rutaLogin;
@@ -63,29 +63,31 @@ public class Fragment_Login extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        // Genero objeto de la clase view con la finalidad de poder usar los elementos del fragment
         vista = inflater.inflate(R.layout.fragment__login, container, false);
 
-        boton = (Button)vista.findViewById(R.id._btnLogin);
-        registrarse = (Button)vista.findViewById(R.id.btnIrRegsitro);
+        // Genero los objetos de los elementos que tengo en el diseño
+        buttonLogin = (Button)vista.findViewById(R.id._btnLogin);
+        buttonRegister = (Button)vista.findViewById(R.id.btnIrRegsitro);
 
-        boton.setOnClickListener(new View.OnClickListener() {
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /**Intent intent = new Intent(getContext(), MenuActivity.class);
                 startActivity(intent);**/
-                email = (EditText)vista.findViewById(R.id._txtUsuario);
-                contraseña = (EditText) vista.findViewById(R.id._txtContrasena);
+                editTextEmail = (EditText)vista.findViewById(R.id._txtUsuario);
+                editTextContrasena = (EditText) vista.findViewById(R.id._txtContrasena);
 
-                if(comprobarCamposVacios(email.getText().toString(),contraseña.getText().toString())){
+                if(comprobarCamposVacios(editTextEmail.getText().toString(),editTextContrasena.getText().toString())){
 
-                    consulta(email.getText().toString(),contraseña.getText().toString());
+                    consulta(editTextEmail.getText().toString(),editTextContrasena.getText().toString());
 
                 }
 
             }
         });
 
-        registrarse.setOnClickListener(new View.OnClickListener() {
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -100,6 +102,11 @@ public class Fragment_Login extends Fragment {
         return vista;
     }
 
+    /** Método que recibe el email y la contraseña introducida por el usuario y comprueba que no están vacíos.
+     *
+     * Si uno de los campos está vacío, la aplicación muestra un mensaje indicando el campo vacío al usuario
+     *
+     * **/
     private boolean comprobarCamposVacios(String email, String contrasena)
     {
 
@@ -121,6 +128,18 @@ public class Fragment_Login extends Fragment {
 
     }
 
+    /**
+     * Método usado para realizar la consulta a la base de datos.
+     *
+     * La ruta recibe por parámtro a través de la url el email y contraseña del usuario.
+     * Compruebo que existen ambos y, en caso de que alguno de los campos sea erróneo con los campos de la base de datos, el usuario verá un mensaje
+     * en el que se le indica el error.
+     *
+     * En caso contrario, recogo de la base de datos el dni del usuario para poder realizar las acciones en el resto de la aplicación
+     *
+     * @param email
+     * @param contrasena
+     */
     private void consulta(String email,String contrasena){
 
         Gson gson = new GsonBuilder()
@@ -148,7 +167,7 @@ public class Fragment_Login extends Fragment {
 
                         break;
 
-                    case 299:
+                    case 204:
 
                         Toasty.error(getContext(),response.body().getLoginUsuario().getRespuestaLogin().toString(),Toast.LENGTH_SHORT,true).show();
 

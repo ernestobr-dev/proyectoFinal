@@ -12,12 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.proyecto_final.Back.Respuestas.RespuestasHistorial.RespuestaBuscarHistorial;
-import com.example.proyecto_final.Back.Respuestas.RespuestasPacientes.RespuestaBuscarPaciente;
 import com.example.proyecto_final.Back.Routes.HistorialRoutes;
-import com.example.proyecto_final.Back.Routes.PacientesRoutes;
 import com.example.proyecto_final.Back.models.Historial.Historiales;
 import com.example.proyecto_final.Back.models.Pacientes.Paciente;
 import com.example.proyecto_final.R;
@@ -27,12 +24,13 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
-import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.proyecto_final.Pantallas.PantallasAcciones.EventosPantallasAcciones.fillSpinner;
 
 
 public class HistorialFragment extends Fragment {
@@ -50,12 +48,14 @@ public class HistorialFragment extends Fragment {
     private Button buttonShowHistoriales;// TODO: BOTON DE LA VISTA TABBED
     private Spinner spinnerPacientes; // TODO: SPINNER CON LOS PACIENTES
 
+    private View viewBuscador,viewTabbedFragment;
 
 
 
 
-    public static HistorialFragment newInstance(  ) {
+    public static HistorialFragment newInstance() {
         HistorialFragment fragment = new HistorialFragment();
+
 
         return fragment;
     }
@@ -66,6 +66,7 @@ public class HistorialFragment extends Fragment {
 
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -73,14 +74,18 @@ public class HistorialFragment extends Fragment {
         // TODO: OBJETO DE LA CLASE VIEW CON EL QUE HAGO REFERENCIA AL LAYOUT DE ESTE FRAGMENT
         View vista =inflater.inflate(R.layout.fragment_historial, container, false);
 
-        buttonShowHistoriales = (Button) vista.findViewById(R.id.buscarHistoriales);
-        spinnerPacientes = (Spinner) vista.findViewById(R.id.spinnerPacientesHistorial);
+        View viewBuscador = vista.findViewById(R.id.buscador);
+
+
+        spinnerPacientes = (Spinner) viewBuscador.findViewById(R.id.spinnerBuscador);
         listHistoriales = (ListView) vista.findViewById(R.id.listaHisotoriales);
 
-        rellenarSpinner(vista);
+        Button button = (Button) viewBuscador.findViewById(R.id.buttonBuscador);
 
-//        // TODO: ASIGNO LA ACCIÓN DE BUSCAR LOS HISTORIALES AL BOTON DE BUSQUEDA
-        buttonShowHistoriales.setOnClickListener(new View.OnClickListener() {
+        fillSpinner(spinnerPacientes,viewBuscador);
+
+      // TODO: ASIGNO LA ACCIÓN DE BUSCAR LOS HISTORIALES AL BOTON DE BUSQUEDA
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -88,7 +93,6 @@ public class HistorialFragment extends Fragment {
                 datos.setId(spinnerPacientes.getSelectedItem().toString().split("-")[0]);
                 datos.setNombre(spinnerPacientes.getSelectedItem().toString().split("-")[1]);
                 buscarHistorial(datos);
-
 
             }
         });
@@ -134,7 +138,7 @@ public class HistorialFragment extends Fragment {
 
 
 
-                    case 299:
+                    case 204:
                         Log.i("299", "Revisa la consulta");
                         break;
 
@@ -149,60 +153,5 @@ public class HistorialFragment extends Fragment {
         });
     }
 
-    private void rellenarSpinner(View view){
-        // TODO: CLASES NECESARIAS PARA PODER REALIZAR LA CONSULTA A LA BASE DE DATOS Y RELLENAR EL SPINNER CON LOS PACIENTES
-        PacientesRoutes rutaBuscarPaciente;
-        Call<RespuestaBuscarPaciente> respuesta;
 
-
-        ArrayList<String> auxiliar = new ArrayList<String>();
-
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create();
-
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://proyectomercerosello.tk/back/pacientes/")
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        rutaBuscarPaciente = retrofit.create(PacientesRoutes.class);
-        respuesta = rutaBuscarPaciente.buscarPaciente();
-
-
-        respuesta.enqueue(new Callback<RespuestaBuscarPaciente>() {
-            @Override
-            public void onResponse(Call<RespuestaBuscarPaciente> call, Response<RespuestaBuscarPaciente> response) {
-
-                // TODO: ARRAY AUXILIAR DONDOE ALMACENAR LOS DATOS RECIBIDOS DE LA BASE DE DATOS
-
-
-                if(response.code() == 299){
-                    Toasty.error(view.getContext(),"ERROR AL CONECTAR CON LA BASE DE DATOS", Toast.LENGTH_SHORT,true).show();
-
-                }
-                else{
-                    for(Paciente paciente: response.body().getPacientes()){
-                        auxiliar.add(paciente.getId()+"-"+paciente.getNombre());
-                    }
-
-
-
-
-                    // TODO: OBJETO ARRAY ADAPTER PARA PODER MOSTRAR LOS DATOS EN EL SPINNER
-                    ArrayAdapter<String> adaptador = new ArrayAdapter<String>(view.getContext(), R.layout.support_simple_spinner_dropdown_item, auxiliar);
-                    spinnerPacientes.setAdapter(adaptador);
-
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<RespuestaBuscarPaciente> call, Throwable t) {
-
-            }
-        });
-
-    }
 }

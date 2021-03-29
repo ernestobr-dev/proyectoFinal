@@ -218,7 +218,7 @@ public class AgendaFragment extends Fragment {
 
                         break;
 
-                    case 299:
+                    case 204:
 
                         Toasty.error(vista.getContext(),"NO HAY DATOS QUE MOSTRAR", Toast.LENGTH_SHORT,true).show();
 

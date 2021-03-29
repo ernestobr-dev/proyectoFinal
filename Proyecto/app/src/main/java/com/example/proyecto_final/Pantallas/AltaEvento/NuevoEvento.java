@@ -229,7 +229,7 @@ public class NuevoEvento extends AppCompatDialogFragment {
 
                         break;
 
-                    case 299:
+                    case 204:
 
                         Toasty.error(getContext(),response.body().getAltaAgenda().toString(),Toast.LENGTH_SHORT,true).show();
 

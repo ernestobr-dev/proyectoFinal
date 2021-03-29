@@ -12,12 +12,12 @@
 
 
     <!-- TODO: TITULOS MENU INFERIOR  -->
-    <string name="_tituloHome">Home</string>
-    <string name="_tituloGestion">Gestion</string>
+    <string name="titleAcciones">Acciones</string>
     <string name="_tituloAgenda">Agenda</string>
-    <string name="_tituloInformacion">Informacion</string>
     <string name="_tituloCalculadora">Calculadora</string>
     <string name="_tituloBuscador">Buscador</string>
+    <string name="titleGestion">GESTION</string>
+    <string name="titleInformacion">INFORMACIÓN</string>
 
     <!--- TODO: REGISTRO -->
     <string name="dniRegistro">DNI USUARIO A REGISTRAR</string>
@@ -30,7 +30,7 @@
 
     <!-- TODO: ERRORES -->
     <string name="errorEmailVacio">CAMPO EMAIL VACIO</string>
-    <string name="errorContrasenaVacia">CAMPO CONTRASEÑA VACIO</string>
+    <string name="errorContrasenaVacia">CAMPO CONTRASENA VACIO</string>
     <string name="errorDniVacio">CAMPO DNI VACIO</string>
     <string name="errorContrasenaRepeVacia">CAMPO REPETIR CONTRASEÑA VACIO</string>
     <string name="errorContrasenasNoIguales">LAS CONTRASEÑAS NO COINCIDEN</string>
@@ -51,22 +51,31 @@
     <string name="botonAltaEvento">ALTA DEL EVENTO</string>
     <string name="botonVolverAgenda">VOLVER A LA AGENDA</string>
 
-    <!-- TODO: LISTADOS DE SECCIONES DE LAS PANTALLAS DE GESTION Y DE INFORMACIÓN -->
-    <string-array name="seccionesGestion">
-        <item>Tratamientos</item>
-        <item>Intervenciones</item>
-    </string-array>
+    <string name="stringHistoriales">Historiales</string>
+    <string name="stringResultados">Resultados</string>
+    <string name="stringQuirofano">Agenda</string>
+    <string name="stringTratamientos">Tratamientos</string>
 
-    <string-array name="seccionesInfomracion">
-        <item>Historiales</item>
-        <item>Resultados</item>
-    </string-array>
+
+
+
     <string name="title_activity_pdf">PdfActivity</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">Hello Square World!</string>
+
+    <!--  TODO: CADENAS PANTALLA CALCULADORA  -->
+    <string name="strPeso">Peso</string>
+    <string name="strDosis">Dosis</string>
+    <string name="strPresentacion">Presentación</string>
+    <string name="strResultado">Resultado</string>
+    <string name="strBtnCalcular">Calcular</string>
+    <string name="strTipo">Tipo de medicina</string>
+    <string name="title_activity_gestion">GestionActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 
 
 </resources>

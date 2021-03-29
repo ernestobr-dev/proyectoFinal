@@ -249,7 +249,7 @@ public class UpdateEvento extends AppCompatDialogFragment {
             @Override
             public void onResponse(Call<RespuestaModificarEvento> call, Response<RespuestaModificarEvento> response) {
 
-                if(response.code() == 299){
+                if(response.code() == 204){
                     Log.i("error", "No funciona ");
 
 
@@ -274,7 +274,7 @@ public class UpdateEvento extends AppCompatDialogFragment {
 
 
         final AlertDialog n = new AlertDialog.Builder(getContext())
-                .setTitle("¿ESTÁ SEGURO DE REALIZAR LOS CAMBIOS?")
+                .setTitle("¿ESTA SEGURO DE REALIZAR LOS CAMBIOS?")
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

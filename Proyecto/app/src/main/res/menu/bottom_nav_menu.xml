@@ -10,16 +10,11 @@
         />
 
     <item
-        android:id="@+id/opGestion"
-        android:title="@string/_tituloGestion"
-        android:icon="@drawable/gestion"
+        android:id="@+id/opAcciones"
+        android:title="@string/titleAcciones"
+        android:icon="@drawable/maletin"
         />
 
-    <item
-        android:id="@+id/opInformacion"
-        android:title="@string/_tituloInformacion"
-        android:icon="@drawable/informacion"
-        />
 
     <item
         android:id="@+id/opCalculadora"

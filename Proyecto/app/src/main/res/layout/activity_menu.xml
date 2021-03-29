@@ -7,7 +7,7 @@
     tools:context=".Menu.MenuActivity">
 
     <FrameLayout
-        android:id="@+id/contenedor"
+        android:id="@+id/container"
         android:layout_width="404dp"
         android:layout_height="671dp"
         android:layout_marginStart="1dp"
@@ -29,7 +29,7 @@
         android:background="@color/fondo"
         app:itemIconTint="@color/botones"
         app:itemTextColor="@color/botones"
-        android:id="@+id/_menu"
+        android:id="@+id/bottom_navigation"
         tools:ignore="MissingConstraints" />
 
 
